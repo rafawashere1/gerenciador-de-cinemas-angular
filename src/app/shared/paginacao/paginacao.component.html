@@ -1,0 +1,8 @@
+<ngb-pagination [collectionSize]="60" [(page)]="page" [boundaryLinks]="true" (pageChange)="setPage($event)" >
+  <ng-template ngbPaginationFirst>Primeira</ng-template>
+  <ng-template ngbPaginationLast>Última</ng-template>
+  <ng-template ngbPaginationPrevious>Anterior</ng-template>
+  <ng-template ngbPaginationNext>Próxima</ng-template>
+  <ng-template ngbPaginationEllipsis>...</ng-template>
+  <ng-template ngbPaginationNumber let-page>{{ page }}</ng-template>
+</ngb-pagination>

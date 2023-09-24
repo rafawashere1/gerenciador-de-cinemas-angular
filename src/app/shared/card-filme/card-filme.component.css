@@ -1,0 +1,11 @@
+.poster-image {
+  width: 300px;
+  height: 300px;
+}
+
+@media (max-width: 390px) and (max-height: 844px) {
+  .poster-image {
+    width: 200px;
+    height: 200px;
+  }
+}
