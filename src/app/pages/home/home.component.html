@@ -2,16 +2,17 @@
   <ul ngbNav #nav="ngbNav" [(activeId)]="activeId" class="nav-underline mb-4">
     <li [ngbNavItem]="1">
       <button ngbNavLink class="fs-3 text-warning">
-        Meus favoritos
+        Mais populares
       </button>
       <ng-template ngbNavContent>
-        <app-lista-filme tipoLista="favoritos" [mostrarPaginacao]="false"></app-lista-filme>
+        <app-lista-filme tipoLista="populares" [mostrarPaginacao]="true"></app-lista-filme>
       </ng-template>
     </li>
     <li [ngbNavItem]="2">
-      <button ngbNavLink class="fs-3 text-warning">Mais populares</button>
+      <button ngbNavLink class="fs-3 text-warning">Meus favoritos</button>
       <ng-template ngbNavContent>
-        <app-lista-filme tipoLista="populares" [mostrarPaginacao]="true"></app-lista-filme>
+        
+        <app-lista-filme tipoLista="favoritos" [mostrarPaginacao]="false"></app-lista-filme>
       </ng-template>
     </li>
   </ul>
