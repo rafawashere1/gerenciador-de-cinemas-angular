@@ -35,13 +35,13 @@ export class FilmeService {
           filme.overview,
           filme.release_date,
           filme.poster_path,
-          filme.backdrop_path,
+          filme.backdrop_path || 'null',
           filme.vote_average,
           filme.vote_count,
           filme.genre_ids,
           []
-        ));
-      })
+        )); 
+      }),
     );
   }
 
