@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { CreditosFilme } from 'src/models/creditos-filme';
 import { Filme } from 'src/models/filme';
 import { TrailerFilme } from 'src/models/trailer-filme';
@@ -17,7 +18,7 @@ export class DetalhesFilmeComponent implements OnInit {
   credito: CreditosFilme[];
 
 
-  constructor(private filmeService: FilmeService, private localStorageService: LocalStorageService) {
+  constructor(private filmeService: FilmeService, private localStorageService: LocalStorageService, private toastrService: ToastrService) {
     this.idFilme = '';
     this.filme = new Filme(0, '', '', '', '', '', 0, 0, [], []);
     this.trailer = new TrailerFilme(0, '');
@@ -49,8 +50,10 @@ export class DetalhesFilmeComponent implements OnInit {
   
       if (filmeNoLocalStorage) {
         this.localStorageService.desfavoritar(this.filme.id);
+        this.toastrService.success('Filme removido dos favoritos.', 'Sucesso')
       } else {
         this.localStorageService.favoritar(this.filme);
+        this.toastrService.success('Filme adicionado aos favoritos.', 'Sucesso')
       }
     }
   }

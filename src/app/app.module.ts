@@ -14,6 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { LocalStorageService } from 'src/services/local-storage.service';
 import { SafePipe } from './pipes/SafePipe.pipe';
 import { PaginacaoComponent } from './shared/paginacao/paginacao.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BarraBuscaComponent } from './shared/barra-busca/barra-busca.component';
+import { FormsModule } from '@angular/forms';
+import { BuscaComponent } from './pages/busca/busca.component';
 
 @NgModule({
   declarations: [
@@ -24,16 +28,24 @@ import { PaginacaoComponent } from './shared/paginacao/paginacao.component';
     DetalhesFilmeComponent,
     ListaFilmeComponent,
     SafePipe,
-    PaginacaoComponent
+    PaginacaoComponent,
+    BarraBuscaComponent,
+    BuscaComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
     NgbNavModule,
-    NgbPaginationModule
+    NgbPaginationModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    })
   ],
   providers: [LocalStorageService],
   bootstrap: [AppComponent]

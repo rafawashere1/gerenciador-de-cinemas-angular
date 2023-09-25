@@ -19,4 +19,6 @@ export class CardFilmeComponent {
     genre_ids: [],
     cast: []
   };
+
+  @Input() ehBusca: boolean = false;
 }

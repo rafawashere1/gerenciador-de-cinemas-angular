@@ -1,0 +1,8 @@
+.estilo-navbar {
+  background: rgb(14, 13, 13);
+  background: radial-gradient(
+    circle,
+    rgb(15, 13, 4) 2%,
+    rgb(27, 27, 27) 76%
+  )
+}

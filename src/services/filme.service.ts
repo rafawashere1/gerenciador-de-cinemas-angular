@@ -24,6 +24,47 @@ export class FilmeService {
     this.favoritos = this.localStorageService.carregarFavoritos();
   }
 
+  selecionarFilmesRecomendados(id: string): Observable<Filme[]> {
+    return this.http.get<any>(`https://api.themoviedb.org/3/movie/${id}/recommendations?language=pt-BR&page=1`, this.httpOptions)
+      .pipe(
+        map(response => {
+          return response.results.map((filme: any) => new Filme(
+            filme.id,
+            filme.title,
+            filme.overview,
+            filme.release_date,
+            filme.poster_path ? "https://image.tmdb.org/t/p/original" + filme.poster_path : '',
+            filme.backdrop_path ? "https://image.tmdb.org/t/p/original" + filme.backdrop_path : '',
+            filme.vote_average,
+            filme.vote_count,
+            filme.genre_ids,
+            []
+          ))
+          .slice(0, 6);
+        })
+      );
+  }
+
+  selecionarFilmePorQuery(query: any, page: number): Observable<Filme[]> {
+    return this.http.get<any>(`https://api.themoviedb.org/3/search/movie?query=${query}&language=pt-BR&page=${page}`, this.httpOptions)
+      .pipe(
+        map(response => {
+          return response.results.map((filme: any) => new Filme(
+            filme.id,
+            filme.title,
+            filme.overview,
+            filme.release_date,
+            filme.poster_path ? "https://image.tmdb.org/t/p/original" + filme.poster_path : '',
+            filme.backdrop_path ? "https://image.tmdb.org/t/p/original" + filme.backdrop_path : '',
+            filme.vote_average,
+            filme.vote_count,
+            filme.genre_ids,
+            []
+          ));
+        })
+      );
+  }
+
   selecionarTodosFilmesPorPopularidade(page: number): Observable<Filme[]> {
     const url = `https://api.themoviedb.org/3/movie/popular?language=pt-BR&page=${page}`;
     
@@ -34,8 +75,8 @@ export class FilmeService {
           filme.title,
           filme.overview,
           filme.release_date,
-          filme.poster_path,
-          filme.backdrop_path || 'null',
+          filme.poster_path ? "https://image.tmdb.org/t/p/original" + filme.poster_path : '',
+          filme.backdrop_path ? "https://image.tmdb.org/t/p/original" + filme.backdrop_path : '',
           filme.vote_average,
           filme.vote_count,
           filme.genre_ids,

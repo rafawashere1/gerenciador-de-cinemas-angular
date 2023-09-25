@@ -1,0 +1,15 @@
+<section class="container">
+  <ng-container *ngIf="query">
+    <h1 class="text-warning">Todos os resultados para: {{ this.query }}</h1>
+  </ng-container>
+  <app-paginacao (onMudarPagina)="mudarPagina($event)"></app-paginacao>
+  <div class="row mt-4">
+    <ng-container *ngFor="let filme of filmes">
+      <div class="col-12">
+        <div class="w-100">
+          <app-card-filme [filme]="filme" [ehBusca]="true"></app-card-filme>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</section>

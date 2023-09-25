@@ -4,6 +4,6 @@ export class TrailerFilme {
 
   constructor(id: number, backdrop_path: string) {
     this.id = id;
-    this.backdrop_path = `https://www.youtube.com/embed/${backdrop_path}`;
+    this.backdrop_path = `https://www.youtube-nocookie.com/embed/${backdrop_path}`;
   }
 }

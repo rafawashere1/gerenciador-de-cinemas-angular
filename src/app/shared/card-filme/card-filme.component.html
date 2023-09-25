@@ -1,15 +1,44 @@
-<div class="container">
-  <div>
-    <a [routerLink]="['/filmes/detalhes']" [queryParams]="{ id: filme.id }">
-      <img
-      class="img-fluid rounded-3 poster-image mb-2"
-      [src]="filme.poster_path"
-      alt="{{ filme.title }} Poster"
-    /></a>
+<div *ngIf="!ehBusca">
+  <div class="container">
+    <div>
+      <a [routerLink]="['/filmes/detalhes']" [queryParams]="{ id: filme.id }">
+        <img
+        class="img-fluid rounded-3 poster-image mb-2"
+        [src]="filme.poster_path"
+        alt="{{ filme.title }} Poster"
+      /></a>
+    </div>
+    <div>
+      <a class="fs-5 link-warning text-decoration-none" [routerLink]="['/filmes/detalhes']" [queryParams]="{ id: filme.id }">
+        {{ filme.title }}
+      </a>
+    </div>
   </div>
-  <div>
-    <a class="fs-5 link-warning text-decoration-none" [routerLink]="['/filmes/detalhes']" [queryParams]="{ id: filme.id }">
-      {{ filme.title }}
-    </a>
+</div>
+
+<div class="card mb-3" *ngIf="ehBusca">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <a [routerLink]="['/filmes/detalhes']" [queryParams]="{ id: filme.id }">
+        <img
+          [src]="filme.poster_path"
+          alt="{{ filme.title }} Poster"
+          class="img-fluid"
+        />
+      </a>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <a [routerLink]="['/filmes/detalhes']" [queryParams]="{ id: filme.id }" class="text-decoration-none text-reset">
+          <h5 class="card-title">{{ filme.title }}</h5>
+        </a>
+          <p class="card-text overflow-hidden text-ellipsis" style="max-height: 200px;">
+            {{ filme.overview }}
+          </p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Data de Lançamento: {{ filme.release_date }}</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

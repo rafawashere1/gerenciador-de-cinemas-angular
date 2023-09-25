@@ -5,7 +5,7 @@
     </div>
     <div class="col ms-auto text-end">
       <p class="text-light">{{ filme.vote_count }} Votos</p>
-      <button class="btn btn-outline-none" (click)="atualizarFavoritos()">
+      <button class="btn btn-outline-none" (click)="atualizarFavoritos()" >
         <ng-container *ngIf="filme && filmeEstaNosFavoritos()">
           <i class="bi bi-heart-fill bi-lg text-warning rem2"></i>
         </ng-container>
@@ -40,7 +40,6 @@
   <div class="row mt-4">
     <h2 class="text-light mb-4">Elenco</h2>
     <div class="col-md-12">
-
         <div class="row">
           <div class="col-md-2" *ngFor="let ator of filme.cast">
             <a [href]="criarLinkWikipedia(ator.name)" target="_blank" class="text-decoration-none">
@@ -54,7 +53,6 @@
           </a>
           </div>
         </div>
-
     </div>
   </div>
 </div>
