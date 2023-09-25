@@ -16,8 +16,9 @@ export class Filme {
   cast: CreditosFilme[];
 
   genres?: string[];
+  linkWikipedia?: string[];
 
-  constructor(id: number, title: string, overview: string, release_date: string, poster_path: string,  backdrop_path: string, vote_average: number, vote_count: number, genre_ids: number[], cast: CreditosFilme[], genres?: string[]) {
+  constructor(id: number, title: string, overview: string, release_date: string, poster_path: string,  backdrop_path: string, vote_average: number, vote_count: number, genre_ids: number[], cast: CreditosFilme[], genres?: string[], linkWikipedia?: string[]) {
     this.id = id;
     this.title = title;
     this.overview = overview;
@@ -32,5 +33,6 @@ export class Filme {
     this.cast = cast;
     
     this.genres = genres;
+    this.linkWikipedia = linkWikipedia;
   }
 }

@@ -1,10 +1,11 @@
 <div class="container">
   <div>
-    <img
+    <a [routerLink]="['/filmes/detalhes']" [queryParams]="{ id: filme.id }">
+      <img
       class="img-fluid rounded-3 poster-image mb-2"
       [src]="filme.poster_path"
       alt="{{ filme.title }} Poster"
-    />
+    /></a>
   </div>
   <div>
     <a class="fs-5 link-warning text-decoration-none" [routerLink]="['/filmes/detalhes']" [queryParams]="{ id: filme.id }">

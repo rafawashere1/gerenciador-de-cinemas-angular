@@ -23,12 +23,15 @@ export class DetalhesFilmeComponent implements OnInit {
     this.trailer = new TrailerFilme(0, '');
     this.credito = [];
   }
+
   ngOnInit(): void {
     const urlAtual = new URL(window.location.href);
     this.idFilme = urlAtual.searchParams.get("id") as string;
 
     this.filmeService.selecionarFilmePorId(this.idFilme).subscribe((filme) => {
       this.filme = filme;
+
+      this.atualizarCast();
     })
 
     this.filmeService.selecionarTrailerPorId(this.idFilme).subscribe((trailer) => {
@@ -54,5 +57,15 @@ export class DetalhesFilmeComponent implements OnInit {
 
   filmeEstaNosFavoritos(): boolean {
     return this.localStorageService.selecionarPorId(this.filme.id) !== undefined;
+  }
+
+  criarLinkWikipedia(nomeCompleto: string): string {
+    return `https://pt.wikipedia.org/wiki/${nomeCompleto.split(' ').join('_')}`;
+  }
+
+  atualizarCast(): void {
+    this.filme.linkWikipedia = this.filme.cast.map((ator: CreditosFilme) =>
+      this.criarLinkWikipedia(ator.name)
+    );
   }
 }
