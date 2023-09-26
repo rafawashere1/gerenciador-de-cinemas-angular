@@ -18,6 +18,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BarraBuscaComponent } from './shared/barra-busca/barra-busca.component';
 import { FormsModule } from '@angular/forms';
 import { BuscaComponent } from './pages/busca/busca.component';
+import { NgOptimizedImage } from '@angular/common';
+import { CardLoadingComponent } from './shared/card-loading/card-loading.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { BuscaComponent } from './pages/busca/busca.component';
     SafePipe,
     PaginacaoComponent,
     BarraBuscaComponent,
-    BuscaComponent
+    BuscaComponent,
+    CardLoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { BuscaComponent } from './pages/busca/busca.component';
     NgbModule,
     NgbNavModule,
     NgbPaginationModule,
+    NgOptimizedImage,
     ToastrModule.forRoot({
       timeOut: 5000,
       positionClass: 'toast-bottom-right',

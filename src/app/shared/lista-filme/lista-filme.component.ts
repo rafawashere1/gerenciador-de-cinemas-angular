@@ -13,6 +13,7 @@ export class ListaFilmeComponent implements OnInit {
   @Input() mostrarPaginacao: boolean = true;
   filmes: Filme[] = [];
   paginaParaIniciar: number;
+  isLoading: boolean = true;
 
   constructor(private service: FilmeService, private localStorageService: LocalStorageService) {
     this.paginaParaIniciar = 1;
@@ -23,18 +24,24 @@ export class ListaFilmeComponent implements OnInit {
   }
 
   mudarPagina(page: number) {
+    this.isLoading = true;
     this.carregarFilmes(page);
   }
 
   private carregarFilmes(page: number) {
     if (this.tipoLista === 'favoritos') {
-      this.filmes = this.localStorageService.carregarFavoritos();
+      this.filmes = this.localStorageService.carregarFavoritos();   
+      this.isLoading = false;
     } else if (this.tipoLista === 'populares') {
+      console.log(this.isLoading)
       this.service.selecionarTodosFilmesPorPopularidade(page).subscribe((filmes) => {
-        this.filmes = filmes;
+      this.filmes = filmes;
+        this.isLoading = false;
+        console.log(this.isLoading)
       });
     } else {
       this.filmes = [];
+      this.isLoading = false;
     }
   }
 }

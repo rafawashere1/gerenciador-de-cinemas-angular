@@ -31,7 +31,6 @@ export class DetalhesFilmeComponent implements OnInit {
 
     this.filmeService.selecionarFilmePorId(this.idFilme).subscribe((filme) => {
       this.filme = filme;
-
       this.atualizarCast();
     })
 
@@ -50,10 +49,10 @@ export class DetalhesFilmeComponent implements OnInit {
   
       if (filmeNoLocalStorage) {
         this.localStorageService.desfavoritar(this.filme.id);
-        this.toastrService.success('Filme removido dos favoritos.', 'Sucesso')
+        this.toastrService.success('Filme removido dos favoritos.')
       } else {
         this.localStorageService.favoritar(this.filme);
-        this.toastrService.success('Filme adicionado aos favoritos.', 'Sucesso')
+        this.toastrService.success('Filme adicionado aos favoritos.')
       }
     }
   }

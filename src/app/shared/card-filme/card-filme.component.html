@@ -4,7 +4,9 @@
       <a [routerLink]="['/filmes/detalhes']" [queryParams]="{ id: filme.id }">
         <img
         class="img-fluid rounded-3 poster-image mb-2"
-        [src]="filme.poster_path"
+        [ngSrc]="filme.poster_path"
+        width="300"
+        height="300"
         alt="{{ filme.title }} Poster"
       /></a>
     </div>
@@ -21,7 +23,9 @@
     <div class="col-md-4">
       <a [routerLink]="['/filmes/detalhes']" [queryParams]="{ id: filme.id }">
         <img
-          [src]="filme.poster_path"
+          [ngSrc]="filme.poster_path"
+          width="300"
+          height="300"
           alt="{{ filme.title }} Poster"
           class="img-fluid"
         />
