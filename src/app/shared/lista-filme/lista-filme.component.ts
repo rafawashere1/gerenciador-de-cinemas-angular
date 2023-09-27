@@ -33,13 +33,18 @@ export class ListaFilmeComponent implements OnInit {
       this.filmes = this.localStorageService.carregarFavoritos();   
       this.isLoading = false;
     } else if (this.tipoLista === 'populares') {
-      console.log(this.isLoading)
       this.service.selecionarTodosFilmesPorPopularidade(page).subscribe((filmes) => {
       this.filmes = filmes;
-        this.isLoading = false;
-        console.log(this.isLoading)
+      this.isLoading = false;
       });
-    } else {
+    } else if (this.tipoLista === 'top-avaliacoes') {
+      this.service.selecionarFilmesMelhorAvaliados(page).subscribe((filmes) => {
+      this.filmes = filmes;
+      this.isLoading = false;
+      });
+    }
+    
+    else {
       this.filmes = [];
       this.isLoading = false;
     }

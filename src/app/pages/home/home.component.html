@@ -9,6 +9,12 @@
       </ng-template>
     </li>
     <li [ngbNavItem]="2">
+      <button ngbNavLink class="fs-3 text-warning">Top Avaliações</button>
+      <ng-template ngbNavContent>
+        <app-lista-filme tipoLista="top-avaliacoes" [mostrarPaginacao]="true"></app-lista-filme>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
       <button ngbNavLink class="fs-3 text-warning">Meus favoritos</button>
       <ng-template ngbNavContent>
         
