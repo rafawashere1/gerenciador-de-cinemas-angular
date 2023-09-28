@@ -3,6 +3,11 @@
   height: 300px;
 }
 
+.poster-image:hover {
+  transform: scale(1.03);
+  transition: transform 0.1s ease;
+}
+
 @media (max-width: 390px) and (max-height: 844px) {
   .poster-image {
     width: 200px;

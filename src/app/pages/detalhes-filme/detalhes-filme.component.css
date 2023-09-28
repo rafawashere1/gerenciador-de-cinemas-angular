@@ -1,3 +1,8 @@
 .rem2 {
   font-size: 2rem;
 }
+
+.poster-image:hover {
+  transform: scale(1.03);
+  transition: transform 0.1s ease;
+}
