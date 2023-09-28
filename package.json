@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy:ghdocs": "ng build --output-path docs --base-href /gerenciador-filmes-angular/"
+    "deploy:ghdocs": "ng build --output-path docs --base-href /gerenciador-de-cinemas-angular/"
   },
   "engines": {
     "node": ">=18 <19"
